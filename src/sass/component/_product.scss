@@ -1,0 +1,61 @@
+.product {
+    &__services {
+        border: 1px solid rgb(119 119 119);
+        border-radius: 10px;
+        background-color: rgb(249 249 255 / 10%);
+        padding: 20px;
+        color: rgb(110, 71, 71);
+        margin: 20px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgb(119 119 119);
+        height: 100%;
+        margin: 0 10px 0 10px;
+
+        &__image img {
+            display: block;
+            // padding: 15px;
+            // width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        &__body {
+            flex: 1 1 auto;
+            padding: 15px;
+
+            & p {
+                font-weight: bold;
+                // display: inline-block;
+                text-align: start;
+                line-height: 1.2rem;
+                display: -webkit-box;
+                /* số dòng hiển thị */
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: calc(1.2*2)rem;
+            }
+            
+            &__group {
+                display: flex;
+                justify-content: center;
+    
+                & span {
+                    margin: 0.25rem;
+                }
+            }
+        }
+
+    }
+
+    &__bot {
+        align-items: flex-end;
+    }
+}
+
+

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class TextBox extends Component {
   render() {
     return (
-      <div className="task-layout" style={{textAlign: "left"}}>
+      <div className="tasks" style={{textAlign: "left"}}>
             <h4>CHỨC NĂNG: </h4>
             <p><i className="fa-solid fa-circle-plus"></i> : Thêm task (phím Enter hoặc click +)</p>
             <p><i className="fa-solid fa-pen-to-square"></i> : Update nội dung task (Enter hoặc click Apply để hoàn thành)</p>

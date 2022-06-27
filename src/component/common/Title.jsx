@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class TaskHeader extends Component {
-
-    render() {
-        return (
-            <>
-                <h3>TO DO LIST APPLICATION</h3>
-            </>
-        );
-    }
+function Title(props) {
+  return (
+    <div style={{ margin: "1.5rem" }}>
+      <h2>{props.title}</h2>
+      <small>{props.descript}</small>
+    </div>
+  );
 }
 
-export default TaskHeader;
+export default Title;

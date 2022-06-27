@@ -1,0 +1,103 @@
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0;
+    // padding: 0;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+//link
+a{
+    text-decoration: none;
+    color: rgb(224, 167, 247)
+}
+
+a:visited{
+    color: rgb(224, 167, 247)
+}
+
+a:hover{
+    color: white
+}
+
+
+
+
+
+
+h1, h2, h3, h4, h5 {
+    margin: 0.25rem;
+}
+
+// COLOR
+@each $color, $val in $color-list {
+    .color-#{$color}{
+        color : $val;
+    }
+}
+
+// MARGIN _ PADING
+$arr : (
+    1: 0.25rem,
+    2: 0.5rem,
+    3: 1rem,
+    4: 1.5rem,
+    5: 3rem,
+);
+@each $id, $val in $arr {
+    .m-#{$id}{
+        margin: $val;
+    }
+    .mb-#{$id}{
+        margin-bottom: $val;
+    }
+    .mt-#{$id}{
+        margin-top: $val;
+    }
+    .mr-#{$id}{
+        margin-right: $val;
+    }
+    .ml-#{$id}{
+        margin-left: $val;
+    }
+    .p-#{$id}{
+        padding: $val;
+    }
+    .pb-#{$id}{
+        padding-bottom: $val;
+    }
+    .pt-#{$id}{
+        padding-top: $val;
+    }
+    .pr-#{$id}{
+        padding-right: $val;
+    }
+    .pl-#{$id}{
+        padding-left: $val;
+    }
+}
+
+.border {
+    border: 1px red solid;
+}
+
+.box-shadow {
+    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}

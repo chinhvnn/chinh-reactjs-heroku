@@ -1,21 +1,23 @@
 import React, { Component } from 'react'
 
-export default class Input extends Component {
-
-  render() {
-    return (
-      <input placeholder={this.props.placeholder} 
+function Input(props) {
+  return (
+      <input placeholder={props.placeholder} 
       className='input-default'
-      type={this.props.type}
-      name={this.props.name}
-      value={this.props.value}
-      id={this.props.id}
-      checked={this.props.checked}
-      onChange={this.props.handleOnChange}
-      onBlur={this.props.handleOnBlur}
-      ref={this.props.handleRef}
-      onKeyUp={this.props.handlePressKey}
+      width={props.width}
+      type={props.type}
+      name={props.name}
+      value={props.value}
+      id={props.id}
+      onChange={props.handleOnChange}
+      onBlur={props.handleOnBlur}
+      ref={props.handleRef}
+      onKeyUp={props.handlePressKey}
+      readOnly={props.readOnly}
+      defaultValue={props.defaultValue}
+      checked={props.checked}
       ></input>
     )
   }
-}
+  export default Input;
+

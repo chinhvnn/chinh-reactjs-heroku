@@ -1,0 +1,55 @@
+nav {
+    // position: fixed;
+    width: 100%;
+    // background-color: rgb(119, 188, 249);
+    background: linear-gradient(#e7dbb4, #8b95fd);
+    font-weight: bold;
+    z-index: 99;
+
+    .nav__desktopview{
+        display: flex;
+    }
+    .nav__mobileview{
+        display: none;
+    }
+
+    @media screen and (max-width: $tablet-min-width) {
+        .nav__mobileview{
+            display: flex;
+        }
+        .nav__desktopview{
+            display: none;
+        }
+    }
+
+
+
+    .nav__title{
+        margin: 0px 15px 0px 15px;
+        font-size: 1.2rem;
+        color: rgb(86, 96, 204);
+        text-shadow: 1px 1px rgb(237, 237, 251);
+    }
+
+    .nav__list__menu {
+        list-style: none;
+        li {
+            margin-right: 20px;
+            a {
+                text-decoration: none;
+                color: rgb(208, 211, 247);
+                text-shadow: 1px 1px black;
+            }
+            a:hover {
+                color: rgb(255, 255, 255);
+            }
+        }
+    }
+
+    .nav__form {
+        button {
+            margin-right: 10px;
+        }
+    }
+    
+}

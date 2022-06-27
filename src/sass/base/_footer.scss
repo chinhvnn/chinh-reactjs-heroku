@@ -1,0 +1,14 @@
+footer {
+    padding: 0px 20px 0px 20px;
+    background-color: grey;
+}
+
+.footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    li{
+        margin-right: 10px;
+    }
+}

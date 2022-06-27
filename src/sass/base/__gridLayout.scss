@@ -1,0 +1,82 @@
+.container {
+        background-color: $main-bg;
+        // padding-left: 20px;
+        // padding-right: 20px;
+        width: 100%;
+}
+
+//ROW FLEX DISPLAY
+.row-flex {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        // border: 1px rgb(212, 101, 101) solid
+}
+
+.a-items-center { 
+        align-items: center;
+}
+
+.j-content-center {
+        justify-content: center;
+}
+.j-content-between {
+        justify-content: space-between;
+}
+.j-content-around {
+        justify-content: space-around;
+}
+.j-content-end {
+        justify-content: end;
+}
+
+// CĂN CHỈNH
+.margin-auto-center {
+        margin: 0 auto;
+}
+.text-align-center{
+        text-align: center
+}
+
+// COLUMN 1/12 FLEX (same bootstrap)
+$col-num : (1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12);
+
+@mixin col-flex {
+        width: 100%;
+        min-height: 1px;
+        // padding-right: 15px;
+        // padding-left: 15px;
+}
+
+@each $col in $col-num {
+        // Small view
+        .col-flex-sm-#{$col} {
+                @include col-flex();
+        }
+
+        @media (min-width: $mobile-min-width) {
+                .col-flex-sm-#{$col} {
+                        -webkit-box-flex: 0;
+                        -ms-flex: 0 0 percentage($col/12);
+                        flex: 0 0 percentage($col/12);
+                        max-width: percentage($col/12);
+                }
+        }
+        // Medium view
+        .col-flex-md-#{$col} {
+                @include col-flex();
+        }
+
+        @media all and (min-width: $tablet-min-width) {
+                .col-flex-md-#{$col} {
+                        -webkit-box-flex: 0;
+                        -ms-flex: 0 0 percentage($col/12)!important;
+                        flex: 0 0 percentage($col/12)!important;
+                        max-width: percentage($col/12)!important;
+                }
+        }
+
+}

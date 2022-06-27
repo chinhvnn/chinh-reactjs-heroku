@@ -1,0 +1,104 @@
+.task-layout {
+    background-color: rgb(237 229 249);
+    margin: 10px 10px 10px 10px;
+    border-radius: 15px;
+}
+
+.left-side-bar {
+    border-radius: 15px 0px 0px 15px;
+    background-color: rgb(37 37 92);
+    color: white;
+    li {
+        margin: 10px;
+        span{
+            text-decoration: none;
+            color: rgb(224, 167, 247);
+            cursor: pointer;
+        }
+        
+        span:visited{
+            color: rgb(224, 167, 247)
+        }
+        
+        span:hover{
+            color: white
+        }
+    }
+
+    
+
+
+
+}
+
+.task-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid rgb(121, 18, 161);
+    border-radius: 5px;
+    padding: 5px;
+    height: 100%;
+
+    &__title {
+        font-weight: bold;
+        overflow: hidden;
+        text-overflow: ellipsis; //dau3cham
+    }
+
+    &__status {
+        color: green;
+        font-weight: bold;
+    }
+
+    &__status-done {
+        color: rgb(46, 17, 230);
+        font-weight: bold;
+    }
+
+    &__status-doing {
+        color: rgb(216, 109, 27);
+        font-weight: bold;
+    }
+
+    &__des {
+        // display: inline-block;
+        text-align: start;
+        line-height: 1.2rem;
+        display: -webkit-box;
+        /* số dòng hiển thị */
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: calc(1.2*2)rem;
+    }
+
+        .task-item__btn {
+        align-self: center;
+        visibility: hidden;
+    }
+
+    &:hover {
+        .task-item__btn {
+            visibility: visible;
+
+        }
+    }
+}
+
+.create-new-task {
+    width: 600px;
+    padding: 10px 30px 30px 0px;
+}
+
+.task-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid rgb(16, 4, 230);
+}
