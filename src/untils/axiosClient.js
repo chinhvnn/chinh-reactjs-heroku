@@ -1,7 +1,8 @@
 import axios from "axios";
+const port = process.env.PORT || '3000'
 
 const axiosClient = axios.create({
-  baseURL: process.env.REACT_APP_BASE_BE,
+  baseURL: process.env.REACT_APP_BASE_BE+port,
   headers: {
     'content-type': 'application/json',
   },
