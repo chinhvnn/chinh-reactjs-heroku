@@ -6,7 +6,7 @@
     padding-left: 0;
     list-style: none;
     border-radius: 0.25rem;
-
+    
     .page-link {
         position: relative;
         display: block;
@@ -16,6 +16,7 @@
         color: rgb(0 123 255);
         background-color: rgb(255 255 255);
         border: 1px solid rgb(222 226 230);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     }
 
     .page-link:hover {

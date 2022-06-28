@@ -6,28 +6,24 @@
 
 .left-side-bar {
     border-radius: 15px 0px 0px 15px;
-    background-color: rgb(37 37 92);
+    background-color: rgb(210, 136, 7);
     color: white;
     li {
         margin: 10px;
         span{
+            color: white;
             text-decoration: none;
-            color: rgb(224, 167, 247);
             cursor: pointer;
         }
         
         span:visited{
-            color: rgb(224, 167, 247)
+            color: rgb(80, 3, 110)
         }
         
         span:hover{
-            color: white
+            color: rgb(124, 20, 165)
         }
     }
-
-    
-
-
 
 }
 
@@ -35,7 +31,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid rgb(121, 18, 161);
+    border: 2px solid rgb(184, 98, 217);
     border-radius: 5px;
     padding: 5px;
     height: 100%;
@@ -102,4 +98,5 @@
     padding: 5px;
     border-radius: 10px;
     border: 1px solid rgb(16, 4, 230);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

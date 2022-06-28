@@ -34,19 +34,17 @@ function TaskForm() {
           <Button title="Create New Task" />
         </Link>
       </div>
-      <div className="row-flex col-flex-md-8 a-items-center">
-        <div className="col-flex-md-6">
-          <Input
+      <div className="row-flex col-flex-md-8 a-items-center j-content-end">
+          <input
             type="text"
+            className="input-default"
+            style={{width: "50%"}}
             placeholder={"Nhập nội dung tìm kiếm..."}
             value={keySearch}
-            handleOnChange={handleChange}
+            onChange={handleChange}
           />
-        </div>
-        <div className="col-flex-md-6 pl-3">
           <Button title="Search" handleClick={handleSearch}></Button>
           {keySearch!==""&&<Button title="Xóa tìm kiếm" handleClick={() => handleSearch("clear")}></Button>}
-        </div>
       </div>
     </div>
   );

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function* generatorFunction() {
+      // Line 1
+      console.log("This will be executed first.");
+      yield "Hello, "; // Line 2
+      console.log("I will be printed after the pause");
+      yield "World!";
+    }
+    const generatorObject = generatorFunction(); // Line 3
+    console.log(generatorObject.next()); // Line 5
+    console.log(generatorObject.throw()); // Line 4
+    console.log(generatorObject.next()); // Line 6
+    // This will be executed first.
+    // Hello,
+    // I will be printed after the pause
+    // World!
+    // undefined
+  </script>
+</html>

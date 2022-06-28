@@ -22,16 +22,16 @@ function LeftSideBar() {
       <hr></hr>
       <ul>
         <li>
-          <span style={filter==="All"?{color: "white"}:{}} onClick={() => handleFilter("All")}>All task</span>
+          <span style={filter==="All"?{color: "rgb(80, 3, 110)"}:{}} onClick={() => handleFilter("All")}>All task</span>
         </li>
         <li>
-          <span style={filter==="New"?{color: "white"}:{}} onClick={() => handleFilter("New")}>New task</span>
+          <span style={filter==="New"?{color: "rgb(80, 3, 110)"}:{}} onClick={() => handleFilter("New")}>New task</span>
         </li>
         <li>
-          <span style={filter==="Doing"?{color: "white"}:{}} onClick={() => handleFilter("Doing")}>Doing task</span>
+          <span style={filter==="Doing"?{color: "rgb(80, 3, 110)"}:{}} onClick={() => handleFilter("Doing")}>Doing task</span>
         </li>
         <li>
-          <span style={filter==="Done"?{color: "white"}:{}} onClick={() => handleFilter("Done")}>Done task</span>
+          <span style={filter==="Done"?{color: "rgb(80, 3, 110)"}:{}} onClick={() => handleFilter("Done")}>Done task</span>
         </li>
       </ul>
     </div>
