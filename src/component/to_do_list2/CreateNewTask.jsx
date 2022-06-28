@@ -27,7 +27,7 @@ function CreateNewTask() {
 
   // xu ly them task
   const handleAddTask = async () => {
-    const input = {
+    const inputForm = {
       id: new Date().getTime(),
       title: inputValue.title,
       creator: inputValue.creator,
@@ -37,7 +37,7 @@ function CreateNewTask() {
     };
 
     try {
-      await createNewTask(input);
+      await createNewTask(inputForm);
       navigate("/todolist2", { replace: true });
     } catch (error) {
       console.log(error);

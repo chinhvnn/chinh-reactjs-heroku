@@ -1,3 +1,4 @@
+
 //init state
 const initState = {
   filter: "All",
@@ -71,9 +72,9 @@ const rootReducer = (state = initState, action) => {
     //   };
 
     default:
-      break;
+      return state;
   }
-  return state;
+  
 };
 
 export default rootReducer;
