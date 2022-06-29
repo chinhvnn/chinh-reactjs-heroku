@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TaskLayout from "../../layouts/TaskLayout";
 import Button from "../common/Button";
 import { useNavigate } from "react-router";
 import { createNewTask } from "../../api/ToDoList2API ";
 import {v4 as uuidv4} from "uuid";
+import { useDispatch, useSelector } from "react-redux";
+import { TASK_TYPE } from "../../constants/taskType";
+import TaskDetailSkeleton from "../skeleton/TaskDetailSkeleton";
 
 function CreateNewTask() {
   //init var
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.loading);
   const initInputTask = {
     title: "",
     creator: "",
@@ -16,6 +21,12 @@ function CreateNewTask() {
     status: "New",
   };
   const [inputValue, setInputValue] = useState(initInputTask);
+
+  //lifecycle
+  useEffect(() => {
+    dispatch({ type: TASK_TYPE.GET_ALL_TASK });
+  }, []);
+
 
   //Xu ly form input
   const handleChange = (e) => {
@@ -50,7 +61,7 @@ function CreateNewTask() {
 
   return (
     <TaskLayout>
-      <div className="row-flex j-content-center">
+      {isLoading?<TaskDetailSkeleton/>:(<div className="row-flex j-content-center">
         <div className="create-new-task">
           <h3>CREATE NEW TASK</h3>
 
@@ -121,7 +132,7 @@ function CreateNewTask() {
             </div>
           </div>
         </div>
-      </div>
+      </div>)}
     </TaskLayout>
   );
 }

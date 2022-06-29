@@ -6,12 +6,14 @@ import {
   actGetCurrentPage,
 } from "../../redux/actions/tdl2Action";
 import { useSelector } from "react-redux/es/exports";
+import LeftSideBarSkeleton from "../skeleton/LeftSideBarSkeleton";
 
 function LeftSideBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
   const data = useSelector((state) => state.tasksData);
+  const isLoading = useSelector((state) => state.loading);
 
   const handleFilter = (str) => {
     navigate("/todolist2", { replace: true });
@@ -24,7 +26,7 @@ function LeftSideBar() {
         <i className="fa fa-tachometer" aria-hidden="true"></i> DASHBOARD
       </p>
       <hr></hr>
-      <ul>
+      {isLoading?<LeftSideBarSkeleton/>:(<ul>
         <li>
           <span
             style={filter === "All" ? { color: "rgb(80, 3, 110)" } : {}}
@@ -57,7 +59,7 @@ function LeftSideBar() {
             Done task ({data.filter(i => i.status === "Done").length})
           </span>
         </li>
-      </ul>
+      </ul>)}
     </div>
   );
 }

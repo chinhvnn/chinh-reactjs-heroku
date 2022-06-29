@@ -1,5 +1,13 @@
 import { TASK_TYPE } from "../../constants/taskType"
 //action
+export const actGetLoading = (boolean) => {
+  console.log("get loading");
+  return {
+    type : TASK_TYPE.GET_LOADING,
+    payload: boolean
+  }
+}
+
 export const actGetAllTask = (data) => {
     console.log("vao action get all reducer", data);
     return {

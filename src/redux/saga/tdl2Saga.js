@@ -1,9 +1,10 @@
 import { TASK_TYPE } from "../../constants/taskType";
 import { call, put, takeEvery, takeLeading } from "redux-saga/effects";
 import { getAllTasks } from "../../api/ToDoList2API ";
-import { actGetAllTask } from "../actions/tdl2Action";
+import { actGetAllTask, actGetLoading } from "../actions/tdl2Action";
 
 function* getAllTask() {
+yield put (actGetLoading(true));
 //   const data = yield axiosClient.get("tasks2");
 const data = yield getAllTasks();
   console.log("vao func getAllTask saga");
@@ -15,6 +16,7 @@ const data = yield getAllTasks();
     // }
     actGetAllTask(data)
   );
+  yield put (actGetLoading(false));
 }
 
 function* watchGetAllTask() {

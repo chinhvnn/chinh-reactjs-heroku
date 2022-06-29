@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
+import { TASK_TYPE } from "../../constants/taskType";
 import TaskItem from "./TaskItem";
-import { getAllTasks } from "../../api/ToDoList2API ";
 import TaskLayout from "../../layouts/TaskLayout";
 import { useSelector } from "react-redux/es/exports";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { actGetCurrentPage, actGetAllTask } from "../../redux/actions/tdl2Action";
+import { actGetCurrentPage } from "../../redux/actions/tdl2Action";
 import Pagination from "../pagination/Pagination";
-import { TASK_TYPE } from "../../constants/taskType";
+import TaskItemSkeleton from "../skeleton/TaskItemSkeleton";
 
 const ToDoListPage2 = () => {
   //init var
@@ -16,24 +16,16 @@ const ToDoListPage2 = () => {
   const data = useSelector((state) => state.tasksData);
   const currentPage = useSelector((state) => state.currentPage);
   const keySearch = useSelector((state) => state.keySearch);
-  let filterData =
-    (filter === "All" ? data : data.filter((item) => item.status === filter)).reverse();
+  const loading = useSelector((state) => state.loading);
+  console.log("loading:", loading);
+  let filterData = (
+    filter === "All" ? data : data.filter((item) => item.status === filter)
+  ).reverse();
 
   //lifecycle
   useEffect(() => {
-    // handleGetAllTasks();
-    dispatch({type: TASK_TYPE.GET_ALL_TASK});
+    dispatch({ type: TASK_TYPE.GET_ALL_TASK });
   }, []);
-
-  //xu ly get all data
-  // const handleGetAllTasks = async () => {
-  //   try {
-  //     const data = await getAllTasks();
-  //     dispatch(actGetAllTask(data));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   //xu ly paginate
   let totalPage, listItemPerPage;
@@ -49,7 +41,8 @@ const ToDoListPage2 = () => {
       keySearch === ""
         ? filterData
         : filterData.filter(
-            (e) => e.title == keySearch || e.title.split(" ").includes(keySearch)
+            (e) =>
+              e.title === keySearch || e.title.split(" ").includes(keySearch)
           );
     totalPage = Math.ceil(filterData2.length / LIMIT_TASK_PER_PAGE);
     listItemPerPage = filterData2.slice(startIndex - 1, endIndex);
@@ -78,7 +71,10 @@ const ToDoListPage2 = () => {
   return (
     <TaskLayout>
       <div className="row-flex">
-        {listItemPerPage &&
+        {loading === true ? 
+          <TaskItemSkeleton/>
+         : (
+          listItemPerPage &&
           listItemPerPage.map((task) => (
             <TaskItem
               key={task.id}
@@ -88,7 +84,8 @@ const ToDoListPage2 = () => {
               status={task.status}
               description={task.description}
             />
-          ))}
+          ))
+        )}
       </div>
       <Pagination
         currentPage={currentPage}

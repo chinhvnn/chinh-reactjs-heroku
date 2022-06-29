@@ -7,6 +7,9 @@ import {
   updateTaskById,
   deleteTaskById,
 } from "../../api/ToDoList2API ";
+import { useDispatch, useSelector } from "react-redux";
+import { TASK_TYPE } from "../../constants/taskType";
+import TaskDetailSkeleton from "../skeleton/TaskDetailSkeleton";
 
 function TaskDetail() {
   //init var
@@ -21,10 +24,13 @@ function TaskDetail() {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState(initInputTask);
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.loading);
 
   //lifecycle
   useEffect(() => {
     handleGetTaskById(taskId);
+    dispatch({ type: TASK_TYPE.GET_ALL_TASK });
   }, []);
 
   // xu ly get task data by id
@@ -88,7 +94,7 @@ function TaskDetail() {
 
   return (
     <TaskLayout>
-      <div className="row-flex j-content-center">
+      {isLoading?<TaskDetailSkeleton/>:(<div className="row-flex j-content-center">
         <div className="create-new-task">
           <h3>TASK DETAIL</h3>
 
@@ -202,7 +208,7 @@ function TaskDetail() {
             </div>
           </div>
         </div>
-      </div>
+      </div>)}
     </TaskLayout>
   );
 }

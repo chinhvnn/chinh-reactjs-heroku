@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Input from "../common/Input";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { actGetKeySearch } from "../../redux/actions/tdl2Action";
 
 function TaskForm() {
   // init var
   const dispatch = useDispatch();
+  const keyAPI = useSelector(state => state.keySearch)
   const [keySearch, setKeySearch] = useState("");
 
   // xu ly onchange input de lay value
@@ -24,7 +25,6 @@ function TaskForm() {
     } else {
       dispatch(actGetKeySearch(keySearch));
     }
-    console.log(keySearch);
   };
 
   return (
@@ -44,7 +44,7 @@ function TaskForm() {
             onChange={handleChange}
           />
           <Button title="Search" handleClick={handleSearch}></Button>
-          {keySearch!==""&&<Button title="Xóa tìm kiếm" handleClick={() => handleSearch("clear")}></Button>}
+          {keyAPI!==""&&<Button title="Xóa tìm kiếm" handleClick={() => handleSearch("clear")}></Button>}
       </div>
     </div>
   );

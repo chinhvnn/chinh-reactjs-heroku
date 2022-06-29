@@ -6,6 +6,7 @@ import ToDoList from "../component/to_do_list/ToDoListPage";
 import ToDoListPage2 from "../component/to_do_list2/ToDoListPage2";
 import CreateNewTask from "../component/to_do_list2/CreateNewTask";
 import '../sass/scssIndex.scss'
+import 'react-loading-skeleton/dist/skeleton.css'
 import TaskDetail from "../component/to_do_list2/TaskDetail";
 
 const LayoutsRouter = () => {
