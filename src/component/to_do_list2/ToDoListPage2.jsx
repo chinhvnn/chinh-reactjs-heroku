@@ -17,7 +17,7 @@ const ToDoListPage2 = () => {
   const currentPage = useSelector((state) => state.currentPage);
   const keySearch = useSelector((state) => state.keySearch);
   let filterData =
-    filter === "All" ? data : data.filter((item) => item.status === filter);
+    (filter === "All" ? data : data.filter((item) => item.status === filter)).reverse();
 
   //lifecycle
   useEffect(() => {
