@@ -4,8 +4,9 @@ import { getAllTasks } from "../../api/ToDoList2API ";
 import TaskLayout from "../../layouts/TaskLayout";
 import { useSelector } from "react-redux/es/exports";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
-import { actChangePage, actGetAllTask } from "../../redux/reducer";
+import { actGetCurrentPage, actGetAllTask } from "../../redux/actions/tdl2Action";
 import Pagination from "../pagination/Pagination";
+import { TASK_TYPE } from "../../constants/taskType";
 
 const ToDoListPage2 = () => {
   //init var
@@ -20,35 +21,39 @@ const ToDoListPage2 = () => {
 
   //lifecycle
   useEffect(() => {
-    handleGetAllTasks();
+    // handleGetAllTasks();
+    dispatch({type: TASK_TYPE.GET_ALL_TASK});
   }, []);
 
   //xu ly get all data
-  const handleGetAllTasks = async () => {
-    try {
-      const data = await getAllTasks();
-      dispatch(actGetAllTask(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleGetAllTasks = async () => {
+  //   try {
+  //     const data = await getAllTasks();
+  //     dispatch(actGetAllTask(data));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   //xu ly paginate
-  let startIndex =
-    currentPage * LIMIT_TASK_PER_PAGE - (LIMIT_TASK_PER_PAGE - 1);
-  let endIndex =
-    filterData.length - currentPage * LIMIT_TASK_PER_PAGE !== 0
-      ? LIMIT_TASK_PER_PAGE * currentPage
-      : filterData.length;
-  //mang lap trong 1 trang (voi dieu kien tim kiem)
-  let filterData2 =
-    keySearch === ""
-      ? filterData
-      : filterData.filter(
-          (e) => e.title == keySearch || e.title.split(" ").includes(keySearch)
-        );
-  const totalPage = Math.ceil(filterData2.length / LIMIT_TASK_PER_PAGE);
-  let listItemPerPage = filterData2.slice(startIndex - 1, endIndex);
+  let totalPage, listItemPerPage;
+  if (filterData) {
+    let startIndex =
+      currentPage * LIMIT_TASK_PER_PAGE - (LIMIT_TASK_PER_PAGE - 1);
+    let endIndex =
+      filterData.length - currentPage * LIMIT_TASK_PER_PAGE !== 0
+        ? LIMIT_TASK_PER_PAGE * currentPage
+        : filterData.length;
+    //mang lap trong 1 trang (voi dieu kien tim kiem)
+    let filterData2 =
+      keySearch === ""
+        ? filterData
+        : filterData.filter(
+            (e) => e.title == keySearch || e.title.split(" ").includes(keySearch)
+          );
+    totalPage = Math.ceil(filterData2.length / LIMIT_TASK_PER_PAGE);
+    listItemPerPage = filterData2.slice(startIndex - 1, endIndex);
+  }
   //ham xu ly va dispatch currentpage
   const handlePagination = (e) => {
     let pagKey = e.target.name;
@@ -67,7 +72,7 @@ const ToDoListPage2 = () => {
       default:
         break;
     }
-    dispatch(actChangePage(chooseCurrentPage));
+    dispatch(actGetCurrentPage(chooseCurrentPage));
   };
 
   return (

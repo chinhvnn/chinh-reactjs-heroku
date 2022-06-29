@@ -1,4 +1,4 @@
-import axiosClient from "../untils/axiosClient";
+import axiosClient from "../utils/axiosClient";
 
 export const getAllTasks = async () => {
   const { data } = await axiosClient.get('tasks', {

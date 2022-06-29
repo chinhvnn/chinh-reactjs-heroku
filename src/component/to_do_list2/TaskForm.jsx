@@ -3,7 +3,7 @@ import Input from "../common/Input";
 import Button from "../common/Button";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux/es/exports";
-import { actGetKeySearch } from "../../redux/reducer";
+import { actGetKeySearch } from "../../redux/actions/tdl2Action";
 
 function TaskForm() {
   // init var

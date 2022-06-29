@@ -217,8 +217,9 @@ function TaskList() {
         />
         {/* BỘ LỌC TASK ITEM */}
         <FilterTask
-          handleRadio={handleRadio}
-          typeDataList={typeDataList}
+          handleRadio = {handleRadio}
+          typeDataList = {typeDataList}
+          dataList = {dataList}
         />
         {dataList.length > 0 ? <Divider /> : ""}
 

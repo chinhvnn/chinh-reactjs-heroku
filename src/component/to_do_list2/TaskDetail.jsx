@@ -73,15 +73,8 @@ function TaskDetail() {
   };
 
   //xu ly CLEAR form
-  const handleClear = () => {
-    setInputValue({
-      ...inputValue,
-      title: "",
-      creator: "",
-      createAt: "",
-      description: "",
-      status: "New",
-    });
+  const handleReset = () => {
+    handleGetTaskById(taskId);
   };
 
   //Xu ly onchange form input
@@ -205,7 +198,7 @@ function TaskDetail() {
             <div className="col-flex-md-8">
               <Button title="Apply and Save" handleClick={handleUpdate} />
               <Button title="Delete this task" handleClick={handleDelete} />
-              <Button title="Clear" handleClick={handleClear}/>
+              <Button title="Reset" handleClick={handleReset}/>
             </div>
           </div>
         </div>

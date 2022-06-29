@@ -3,6 +3,7 @@ import TaskLayout from "../../layouts/TaskLayout";
 import Button from "../common/Button";
 import { useNavigate } from "react-router";
 import { createNewTask } from "../../api/ToDoList2API ";
+import {v4 as uuidv4} from "uuid";
 
 function CreateNewTask() {
   //init var
@@ -28,7 +29,7 @@ function CreateNewTask() {
   // xu ly them task
   const handleAddTask = async () => {
     const inputForm = {
-      id: new Date().getTime(),
+      id : uuidv4(),
       title: inputValue.title,
       creator: inputValue.creator,
       createAt: new Date().toTimeString(),
