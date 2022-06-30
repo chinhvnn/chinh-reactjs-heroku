@@ -1,6 +1,6 @@
 import React from "react";
 import HomeLayout from "../../layouts/HomeLayout";
-import CitiesSlider from "../fragment/Slider";
+import CitiesSlider from "../partial/Slider";
 
 function HomePage() {
   return (

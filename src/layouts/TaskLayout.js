@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../component/fragment/Header";
-import Footer from "../component/fragment/Footer";
+import Header from "../component/partial/Header";
+import Footer from "../component/partial/Footer";
 import LeftSideBar from "../component/to_do_list2/LeftSideBar";
 import TaskForm from "../component/to_do_list2/TaskForm";
 

@@ -12,7 +12,7 @@ function CreateNewTask() {
   //init var
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.loading);
+  const isLoading = useSelector((state) => state.isLoading);
   const initInputTask = {
     title: "",
     creator: "",

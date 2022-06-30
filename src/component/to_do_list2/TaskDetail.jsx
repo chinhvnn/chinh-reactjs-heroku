@@ -25,7 +25,7 @@ function TaskDetail() {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState(initInputTask);
   const dispatch = useDispatch();
-  const isLoading = useSelector((state) => state.loading);
+  const isLoading = useSelector((state) => state.isLoading);
 
   //lifecycle
   useEffect(() => {

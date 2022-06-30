@@ -1,7 +1,7 @@
 import { TASK_TYPE } from "../../constants/taskType";
 //init state
 const initState = {
-  loading : true,
+  isLoading : true,
   filter: "All",
   keySearch: "",
   currentPage: 1,
@@ -14,7 +14,7 @@ const rootReducer = (state = initState, action) => {
     case TASK_TYPE.GET_LOADING:
       return {
         ...state,
-        loading: action.payload,
+        isLoading: action.payload,
       };
     case TASK_TYPE.SUCCESS_GET_ALL_TASK:
       return {

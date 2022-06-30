@@ -13,14 +13,14 @@ nav {
         display: none;
     }
 
-    @media screen and (max-width: $tablet-min-width) {
-        .nav__mobileview{
-            display: flex;
-        }
-        .nav__desktopview{
-            display: none;
-        }
-    }
+    // @media screen and (max-width: $tablet-min-width) {
+    //     .nav__mobileview{
+    //         display: flex;
+    //     }
+    //     .nav__desktopview{
+    //         display: none;
+    //     }
+    // }
 
 
 

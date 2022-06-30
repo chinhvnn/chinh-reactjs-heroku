@@ -16,8 +16,8 @@ const ToDoListPage2 = () => {
   const data = useSelector((state) => state.tasksData);
   const currentPage = useSelector((state) => state.currentPage);
   const keySearch = useSelector((state) => state.keySearch);
-  const loading = useSelector((state) => state.loading);
-  console.log("loading:", loading);
+  const isLoading = useSelector((state) => state.isLoading);
+  console.log("loading:", isLoading);
   let filterData = (
     filter === "All" ? data : data.filter((item) => item.status === filter)
   ).reverse();
@@ -71,9 +71,9 @@ const ToDoListPage2 = () => {
   return (
     <TaskLayout>
       <div className="row-flex">
-        {loading === true ? 
-          <TaskItemSkeleton/>
-         : (
+        {isLoading ? (
+          <TaskItemSkeleton />
+        ) : (
           listItemPerPage &&
           listItemPerPage.map((task) => (
             <TaskItem

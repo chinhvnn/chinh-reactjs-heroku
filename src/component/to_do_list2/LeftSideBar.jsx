@@ -13,7 +13,7 @@ function LeftSideBar() {
   const dispatch = useDispatch();
   const filter = useSelector((state) => state.filter);
   const data = useSelector((state) => state.tasksData);
-  const isLoading = useSelector((state) => state.loading);
+  const isLoading = useSelector((state) => state.isLoading);
 
   const handleFilter = (str) => {
     navigate("/todolist2", { replace: true });
