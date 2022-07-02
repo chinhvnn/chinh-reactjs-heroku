@@ -14,7 +14,7 @@ import moment from "moment";
 const SignupSchema = yup.object().shape({
 title: yup.string().required("required"),
 creator: yup.string().required("required"),
-createAt: yup.date(),
+// createAt: yup.date(),
 });
 
 
@@ -189,7 +189,7 @@ function TaskDetail() {
                       />
                     )}
                   />
-                  {<span>&nbsp;{errors.createAt && errors.createAt.message}</span>}
+                  {/* {<span>&nbsp;{errors.createAt && errors.createAt.message}</span>} */}
                 </div>
               </div>
 
