@@ -18,7 +18,7 @@ function formatDate(date) {
 const SignupSchema = yup.object().shape({
 title: yup.string().required("required"),
 creator: yup.string().required("required"),
-createAt: yup.date(),
+// createAt: yup.date(),
 });
 
 
@@ -141,7 +141,7 @@ function CreateNewTask() {
                       />
                     )}
                   />
-                  {<span>&nbsp;{errors.createAt && errors.createAt.message}</span>}
+                  {/* {<span>&nbsp;{errors.createAt && errors.createAt.message}</span>} */}
                 </div>
               </div>
 
