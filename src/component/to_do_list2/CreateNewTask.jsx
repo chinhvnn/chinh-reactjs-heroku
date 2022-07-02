@@ -12,10 +12,15 @@ import * as yup from "yup";
 import moment from "moment";
 
 //------ YUP VALIDATION
+function formatDate(date) {
+  return moment(date).format('DD MMMM YYYY, h:mm:ss a')
+}
 const SignupSchema = yup.object().shape({
 title: yup.string().required("required"),
 creator: yup.string().required("required"),
+createAt: yup.date(),
 });
+
 
 
 function CreateNewTask() {

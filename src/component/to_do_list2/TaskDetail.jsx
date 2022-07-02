@@ -14,6 +14,7 @@ import moment from "moment";
 const SignupSchema = yup.object().shape({
 title: yup.string().required("required"),
 creator: yup.string().required("required"),
+createAt: yup.date(),
 });
 
 
@@ -24,8 +25,13 @@ function TaskDetail() {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.isLoading);
   const isUpdateTaskSuccess = useSelector((state) => state.isUpdateTaskSuccess);
+  const keySearch = useSelector((state) => state.keySearch);
+  const filter = useSelector((state) => state.filter);
   const taskById = useSelector((state) => state.taskById);
-  const tasksData = useSelector((state) => state.tasksData);
+  const data = useSelector((state) => state.tasksData);
+  let tasksData = (
+    filter === "All" ? data : data.filter((item) => item.status === filter)
+  );
   const indexTask = tasksData.findIndex((item) => String(item.id) === taskId);
   const nextId =
     tasksData.length > 0 &&
@@ -90,6 +96,8 @@ function TaskDetail() {
               >
                 Go Back Home
               </button>
+              {keySearch === "" && 
+              <>
               <button
                 className="mr-3"
                 disabled={previousId === false && true}
@@ -110,6 +118,7 @@ function TaskDetail() {
               >
                 Next
               </button>
+              </>}
             </div>
             <form>
               <div className="row-flex ">
@@ -180,6 +189,7 @@ function TaskDetail() {
                       />
                     )}
                   />
+                  {<span>&nbsp;{errors.createAt && errors.createAt.message}</span>}
                 </div>
               </div>
 
