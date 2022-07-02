@@ -17,10 +17,9 @@ const ToDoListPage2 = () => {
   const currentPage = useSelector((state) => state.currentPage);
   const keySearch = useSelector((state) => state.keySearch);
   const isLoading = useSelector((state) => state.isLoading);
-  console.log("loading:", isLoading);
   let filterData = (
     filter === "All" ? data : data.filter((item) => item.status === filter)
-  ).reverse();
+  );
 
   //lifecycle
   useEffect(() => {
@@ -28,7 +27,7 @@ const ToDoListPage2 = () => {
   }, []);
 
   //xu ly paginate
-  let totalPage, listItemPerPage;
+  let totalPage, listItemPerPage , filterData2;
   if (filterData) {
     let startIndex =
       currentPage * LIMIT_TASK_PER_PAGE - (LIMIT_TASK_PER_PAGE - 1);
@@ -37,7 +36,7 @@ const ToDoListPage2 = () => {
         ? LIMIT_TASK_PER_PAGE * currentPage
         : filterData.length;
     //mang lap trong 1 trang (voi dieu kien tim kiem)
-    let filterData2 =
+    filterData2 =
       keySearch === ""
         ? filterData
         : filterData.filter(
@@ -70,11 +69,13 @@ const ToDoListPage2 = () => {
 
   return (
     <TaskLayout>
+        {keySearch !== "" && <span className="ml-3">Có {filterData2.length} kết quả được tìm kiếm</span>}
       <div className="row-flex">
         {isLoading ? (
           <TaskItemSkeleton />
         ) : (
-          listItemPerPage &&
+          <>
+          {listItemPerPage &&
           listItemPerPage.map((task) => (
             <TaskItem
               key={task.id}
@@ -84,11 +85,11 @@ const ToDoListPage2 = () => {
               status={task.status}
               description={task.description}
             />
-          ))
+          ))}
+          </>
         )}
       </div>
       <Pagination
-        currentPage={currentPage}
         totalPage={totalPage}
         handlePagination={handlePagination}
         link="/todolist2#"

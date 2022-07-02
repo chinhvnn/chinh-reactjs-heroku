@@ -30,9 +30,6 @@ function ProductLayout() {
       price : 120000,
     },
   ];
-  {
-    document.title = "CHINH-APP - Products";
-  }
   return (
     <div>
       <div>

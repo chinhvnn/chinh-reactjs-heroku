@@ -4,7 +4,6 @@ import Divider from "../common/Divider";
 import Pagination from "../pagination/Pagination";
 import Title from "../common/Title";
 import FilterTask from "./FilterTask";
-import Skeleton from "react-loading-skeleton"
 import { LIMIT_TASK_PER_PAGE, DEFAULT_DATA_LIST } from "../common/Constants";
 import {
   createNewTask,
@@ -192,6 +191,7 @@ function TaskList() {
       ? LIMIT_TASK_PER_PAGE * currentPage
       : filterListItem.length;
   let listItemPerPage = filterListItem.slice(startIndex - 1, endIndex);
+  console.log(listItemPerPage);
 
   console.log("render To do list 1");
   return (

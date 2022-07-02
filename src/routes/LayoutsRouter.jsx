@@ -20,7 +20,7 @@ const LayoutsRouter = () => {
           <Route path="todolist2">
             <Route index="true" element={<ToDoListPage2 />}/>
             <Route path="create-new-task" element={ <CreateNewTask/>}/>
-            <Route path="taskid=:taskId" element={ <TaskDetail/>}/>
+            <Route path=":taskId" element={ <TaskDetail/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

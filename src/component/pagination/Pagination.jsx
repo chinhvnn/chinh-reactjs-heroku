@@ -1,6 +1,8 @@
 import React from 'react'
+import {useSelector} from "react-redux"
 
-function Pagination({currentPage, totalPage, handlePagination , link}) {
+function Pagination({totalPage, handlePagination , link}) {
+    const currentPage = useSelector((state) => state.currentPage);
     let startCountPage = (currentPage>3)?(currentPage - 2):1; 
     let endCountPage = (currentPage < totalPage-1)?(currentPage + 2):totalPage; 
 

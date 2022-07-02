@@ -1,43 +1,59 @@
-import { TASK_TYPE } from "../../constants/taskType"
-//action
+import { TASK_TYPE } from "../../constants/taskType";
+//------ action wait to loading data
 export const actGetLoading = (boolean) => {
-  console.log("get loading");
   return {
-    type : TASK_TYPE.GET_LOADING,
-    payload: boolean
-  }
-}
+    type: TASK_TYPE.GET_LOADING,
+    payload: boolean,
+  };
+};
 
-export const actGetAllTask = (data) => {
-    console.log("vao action get all reducer", data);
-    return {
-      type: TASK_TYPE.SUCCESS_GET_ALL_TASK,
-      payload: data,
-    };
+//------ action when get all task success
+export const actGetAllTaskSuccess = (data) => {
+  return {
+    type: TASK_TYPE.GET_ALL_TASK_SUCCESS,
+    payload: data,
   };
-  export const actChangeFilter = (str) => {
-    return {
-      type: TASK_TYPE.CHANGE_FILTER,
-      payload: str,
-    };
+};
+//------ action when get all task success
+export const actGetTaskByIdSuccess = (data) => {
+  return {
+    type: TASK_TYPE.GET_TASK_BY_ID_SUCCESS,
+    payload: data,
   };
-  export const actGetCurrentPage = (num) => {
-    return {
-      type: TASK_TYPE.GET_CURRENT_PAGE,
-      payload: num,
-    };
+};
+//------ action
+export const actChangeFilter = (str) => {
+  return {
+    type: TASK_TYPE.CHANGE_FILTER,
+    payload: str,
   };
-  export const actGetKeySearch = (str) => {
-    return {
-      type: TASK_TYPE.GET_KEY_SEARCH,
-      payload: str,
-    };
+};
+//------ action
+export const actGetCurrentPage = (num) => {
+  return {
+    type: TASK_TYPE.GET_CURRENT_PAGE,
+    payload: num,
   };
-  
-  // export const actAddTask = (data) => {
-  //   console.log("vao action add task", data);
-  //   return {
-  //     type: "todolist2/addTask",
-  //     payload: data
-  //   }
-  // };
+};
+//------ action
+export const actGetKeySearch = (str) => {
+  return {
+    type: TASK_TYPE.GET_KEY_SEARCH,
+    payload: str,
+  };
+};
+//------ action
+export const actAddTaskSuccess = (boolean) => {
+  return {
+    type: TASK_TYPE.ADD_NEW_TASK_SUCCESS,
+    payload: boolean,
+  };
+};
+//------ action
+export const actUpdateTaskSuccess = (boolean) => {
+  return {
+    type: TASK_TYPE.UPDATE_TASK_SUCCESS,
+    payload: boolean,
+  };
+};
+

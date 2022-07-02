@@ -1,8 +1,11 @@
 import React from "react";
 import Divider from "../common/Divider";
 import {Link} from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { actUpdateTaskSuccess } from "../../redux/actions/tdl2Action";
 
 function TaskItem({ id, title, status, creator, description }) {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="col-flex-md-3 p-2">
@@ -26,7 +29,7 @@ function TaskItem({ id, title, status, creator, description }) {
             <p className="task-item__des">{description}</p>
           </div>
           <div className="task-item__btn">
-            <Link to={"/todolist2/taskid="+id}><button className="btn-default">Update</button></Link>
+            <Link to={"/todolist2/"+id}><button className="btn-default" onClick={()=>dispatch(actUpdateTaskSuccess(false))}>Update</button></Link>
           </div>
         </div>
       </div>
